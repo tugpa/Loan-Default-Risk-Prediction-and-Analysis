@@ -1,0 +1,67 @@
+--- Training and Evaluating Logistic Regression (Balanced) ---
+
+Accuracy Score: 0.8842
+
+Confusion Matrix:
+[[1349  336]
+ [ 806 7367]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.63      0.80      0.70      1685
+           1       0.96      0.90      0.93      8173
+
+    accuracy                           0.88      9858
+   macro avg       0.79      0.85      0.82      9858
+weighted avg       0.90      0.88      0.89      9858
+
+====================================================
+
+--- Training and Evaluating Random Forest (Balanced) ---
+
+Accuracy Score: 0.8295
+
+Confusion Matrix:
+[[  12 1673]
+ [   8 8165]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.60      0.01      0.01      1685
+           1       0.83      1.00      0.91      8173
+
+    accuracy                           0.83      9858
+   macro avg       0.71      0.50      0.46      9858
+weighted avg       0.79      0.83      0.75      9858
+
+====================================================
+
+--- Training and Evaluating LightGBM (Balanced) ---
+[LightGBM] [Info] Number of positive: 19071, number of negative: 3931
+[LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.060156 seconds.
+You can set `force_col_wise=true` to remove the overhead.
+[LightGBM] [Info] Total Bins 161415
+[LightGBM] [Info] Number of data points in the train set: 23002, number of used features: 633
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=-0.000000
+[LightGBM] [Info] Start training from score -0.000000
+
+Accuracy Score: 0.7382
+
+Confusion Matrix:
+[[ 896  789]
+ [1792 6381]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.33      0.53      0.41      1685
+           1       0.89      0.78      0.83      8173
+
+    accuracy                           0.74      9858
+   macro avg       0.61      0.66      0.62      9858
+weighted avg       0.79      0.74      0.76      9858
+
+====================================================
+

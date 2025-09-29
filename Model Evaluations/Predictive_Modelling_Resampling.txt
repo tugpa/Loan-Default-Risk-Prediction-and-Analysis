@@ -1,0 +1,282 @@
+================== Evaluating with SMOTE ==================
+Applying SMOTE...
+Resampling complete.
+------------------------------
+--- Training and Evaluating Logistic Regression (with SMOTE) ---
+
+Accuracy Score: 0.9066
+
+Confusion Matrix:
+[[1337  348]
+ [ 573 7600]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.70      0.79      0.74      1685
+           1       0.96      0.93      0.94      8173
+
+    accuracy                           0.91      9858
+   macro avg       0.83      0.86      0.84      9858
+weighted avg       0.91      0.91      0.91      9858
+
+----------------------------------------------------
+
+--- Training and Evaluating Random Forest (with SMOTE) ---
+
+Accuracy Score: 0.8039
+
+Confusion Matrix:
+[[ 225 1460]
+ [ 473 7700]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.32      0.13      0.19      1685
+           1       0.84      0.94      0.89      8173
+
+    accuracy                           0.80      9858
+   macro avg       0.58      0.54      0.54      9858
+weighted avg       0.75      0.80      0.77      9858
+
+----------------------------------------------------
+
+--- Training and Evaluating LightGBM (with SMOTE) ---
+[LightGBM] [Info] Number of positive: 19071, number of negative: 19071
+[LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.088163 seconds.
+You can set `force_col_wise=true` to remove the overhead.
+[LightGBM] [Info] Total Bins 161415
+[LightGBM] [Info] Number of data points in the train set: 38142, number of used features: 633
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
+
+Accuracy Score: 0.7697
+
+Confusion Matrix:
+[[ 656 1029]
+ [1241 6932]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.35      0.39      0.37      1685
+           1       0.87      0.85      0.86      8173
+
+    accuracy                           0.77      9858
+   macro avg       0.61      0.62      0.61      9858
+weighted avg       0.78      0.77      0.78      9858
+
+----------------------------------------------------
+
+================== Evaluating with ADASYN ==================
+Applying ADASYN...
+Resampling complete.
+------------------------------
+--- Training and Evaluating Logistic Regression (with ADASYN) ---
+
+Accuracy Score: 0.9087
+
+Confusion Matrix:
+[[1367  318]
+ [ 582 7591]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.70      0.81      0.75      1685
+           1       0.96      0.93      0.94      8173
+
+    accuracy                           0.91      9858
+   macro avg       0.83      0.87      0.85      9858
+weighted avg       0.92      0.91      0.91      9858
+
+----------------------------------------------------
+
+--- Training and Evaluating Random Forest (with ADASYN) ---
+
+Accuracy Score: 0.7997
+
+Confusion Matrix:
+[[ 251 1434]
+ [ 541 7632]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.32      0.15      0.20      1685
+           1       0.84      0.93      0.89      8173
+
+    accuracy                           0.80      9858
+   macro avg       0.58      0.54      0.54      9858
+weighted avg       0.75      0.80      0.77      9858
+
+----------------------------------------------------
+
+--- Training and Evaluating LightGBM (with ADASYN) ---
+[LightGBM] [Info] Number of positive: 19071, number of negative: 20110
+[LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.073661 seconds.
+You can set `force_col_wise=true` to remove the overhead.
+[LightGBM] [Info] Total Bins 161415
+[LightGBM] [Info] Number of data points in the train set: 39181, number of used features: 633
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.486741 -> initscore=-0.053048
+[LightGBM] [Info] Start training from score -0.053048
+
+Accuracy Score: 0.7634
+
+Confusion Matrix:
+[[ 691  994]
+ [1338 6835]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.34      0.41      0.37      1685
+           1       0.87      0.84      0.85      8173
+
+    accuracy                           0.76      9858
+   macro avg       0.61      0.62      0.61      9858
+weighted avg       0.78      0.76      0.77      9858
+
+----------------------------------------------------
+
+================== Evaluating with SMOTE-Tomek ==================
+Applying SMOTE-Tomek...
+Resampling complete.
+------------------------------
+--- Training and Evaluating Logistic Regression (with SMOTE-Tomek) ---
+
+Accuracy Score: 0.9192
+
+Confusion Matrix:
+[[1354  331]
+ [ 466 7707]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.74      0.80      0.77      1685
+           1       0.96      0.94      0.95      8173
+
+    accuracy                           0.92      9858
+   macro avg       0.85      0.87      0.86      9858
+weighted avg       0.92      0.92      0.92      9858
+
+----------------------------------------------------
+
+--- Training and Evaluating Random Forest (with SMOTE-Tomek) ---
+
+Accuracy Score: 0.8079
+
+Confusion Matrix:
+[[ 229 1456]
+ [ 438 7735]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.34      0.14      0.19      1685
+           1       0.84      0.95      0.89      8173
+
+    accuracy                           0.81      9858
+   macro avg       0.59      0.54      0.54      9858
+weighted avg       0.76      0.81      0.77      9858
+
+----------------------------------------------------
+
+--- Training and Evaluating LightGBM (with SMOTE-Tomek) ---
+[LightGBM] [Info] Number of positive: 19019, number of negative: 19019
+[LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.084313 seconds.
+You can set `force_col_wise=true` to remove the overhead.
+[LightGBM] [Info] Total Bins 161415
+[LightGBM] [Info] Number of data points in the train set: 38038, number of used features: 633
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=0.000000
+
+Accuracy Score: 0.7671
+
+Confusion Matrix:
+[[ 632 1053]
+ [1243 6930]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.34      0.38      0.36      1685
+           1       0.87      0.85      0.86      8173
+
+    accuracy                           0.77      9858
+   macro avg       0.60      0.61      0.61      9858
+weighted avg       0.78      0.77      0.77      9858
+
+----------------------------------------------------
+
+================== Evaluating with SMOTE-ENN ==================
+Applying SMOTE-ENN...
+Resampling complete.
+------------------------------
+--- Training and Evaluating Logistic Regression (with SMOTE-ENN) ---
+
+Accuracy Score: 0.6909
+
+Confusion Matrix:
+[[1507  178]
+ [2869 5304]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.34      0.89      0.50      1685
+           1       0.97      0.65      0.78      8173
+
+    accuracy                           0.69      9858
+   macro avg       0.66      0.77      0.64      9858
+weighted avg       0.86      0.69      0.73      9858
+
+----------------------------------------------------
+
+--- Training and Evaluating Random Forest (with SMOTE-ENN) ---
+
+Accuracy Score: 0.4974
+
+Confusion Matrix:
+[[1189  496]
+ [4459 3714]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.21      0.71      0.32      1685
+           1       0.88      0.45      0.60      8173
+
+    accuracy                           0.50      9858
+   macro avg       0.55      0.58      0.46      9858
+weighted avg       0.77      0.50      0.55      9858
+
+----------------------------------------------------
+
+--- Training and Evaluating LightGBM (with SMOTE-ENN) ---
+[LightGBM] [Info] Number of positive: 6364, number of negative: 17942
+[LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.074991 seconds.
+You can set `force_col_wise=true` to remove the overhead.
+[LightGBM] [Info] Total Bins 161415
+[LightGBM] [Info] Number of data points in the train set: 24306, number of used features: 633
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.261828 -> initscore=-1.036487
+[LightGBM] [Info] Start training from score -1.036487
+
+Accuracy Score: 0.5174
+
+Confusion Matrix:
+[[1237  448]
+ [4309 3864]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.22      0.73      0.34      1685
+           1       0.90      0.47      0.62      8173
+
+    accuracy                           0.52      9858
+   macro avg       0.56      0.60      0.48      9858
+weighted avg       0.78      0.52      0.57      9858
+
+----------------------------------------------------
+

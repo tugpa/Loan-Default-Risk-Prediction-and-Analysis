@@ -1,0 +1,67 @@
+--- Training and Evaluating Logistic Regression ---
+
+Accuracy Score: 0.8846
+
+Confusion Matrix:
+[[ 619 1066]
+ [  72 8101]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.90      0.37      0.52      1685
+           1       0.88      0.99      0.93      8173
+
+    accuracy                           0.88      9858
+   macro avg       0.89      0.68      0.73      9858
+weighted avg       0.89      0.88      0.86      9858
+
+====================================================
+
+--- Training and Evaluating Random Forest ---
+
+Accuracy Score: 0.8284
+
+Confusion Matrix:
+[[  29 1656]
+ [  36 8137]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.45      0.02      0.03      1685
+           1       0.83      1.00      0.91      8173
+
+    accuracy                           0.83      9858
+   macro avg       0.64      0.51      0.47      9858
+weighted avg       0.77      0.83      0.76      9858
+
+====================================================
+
+--- Training and Evaluating LightGBM ---
+[LightGBM] [Info] Number of positive: 19071, number of negative: 3931
+[LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.051602 seconds.
+You can set `force_col_wise=true` to remove the overhead.
+[LightGBM] [Info] Total Bins 161415
+[LightGBM] [Info] Number of data points in the train set: 23002, number of used features: 633
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.829102 -> initscore=1.579275
+[LightGBM] [Info] Start training from score 1.579275
+
+Accuracy Score: 0.8341
+
+Confusion Matrix:
+[[ 115 1570]
+ [  65 8108]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.64      0.07      0.12      1685
+           1       0.84      0.99      0.91      8173
+
+    accuracy                           0.83      9858
+   macro avg       0.74      0.53      0.52      9858
+weighted avg       0.80      0.83      0.77      9858
+
+====================================================
+
