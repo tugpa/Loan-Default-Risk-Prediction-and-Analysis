@@ -67,11 +67,11 @@ The models were evaluated based on accuracy, precision, recall, and F1-score, wi
 | Baseline (Imbalanced)       | 0.8846   | 0.90                | 0.37             | 0.52               |
 | Balanced Class Weights      | 0.8842   | 0.63                | 0.80             | 0.70               |
 | Resampling with SMOTE       | 0.9066   | 0.70                | 0.79             | 0.74               |
-| Resampling with ADASYN      | 0.8864   | 0.61                | 0.87             | 0.72               |
-| Resampling with SMOTE-Tomek | 0.9062   | 0.70                | 0.79             | 0.74               |
-| Resampling with SMOTE-ENN   | 0.4974   | 0.21                | 0.71             | 0.32               |
+| Resampling with ADASYN      | 0.9087   | 0.70                | 0.81             | 0.75               |
+| Resampling with SMOTE-Tomek | 0.9192   | 0.74                | 0.80             | 0.77               |
+| Resampling with SMOTE-ENN   | 0.6909   | 0.34                | 0.89             | 0.50               |
 
-As shown, the resampling techniques significantly improved the model's ability to identify defaults. **SMOTE** and **SMOTE-Tomek** provided the best balance of precision and recall, achieving the highest F1-scores and demonstrating a strong ability to predict loan defaults without compromising overall accuracy.
+As shown, the resampling techniques significantly improved the model's ability to identify defaults. **SMOTE**, **ADASYN** and **SMOTE-Tomek** provided the best balance of precision and recall, achieving the highest F1-scores and demonstrating a strong ability to predict loan defaults without compromising overall accuracy.
 
 ---
 
