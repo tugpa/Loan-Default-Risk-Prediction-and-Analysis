@@ -46,33 +46,62 @@ The analysis and visualization phase focused on understanding the factors that i
 
 ## Predictive Modeling
 
-The final stage of the project was to build a predictive model for loan default risk. This involved:
+The final stage of the project was to build and evaluate machine learning models to predict loan default risk. This involved new feature engineering, a comparative analysis of preprocessing pipelines, and a systematic evaluation of oversampling techniques to handle our imbalanced dataset.
 
-* **Feature Engineering**: Creating new features like `credit_history_length`, `loan_to_income_ratio`, and `instalment_to_income_ratio` to provide more relevant information to the models.
-* **Model Selection**: Several classification models were trained and evaluated, including **Logistic Regression**, **Random Forest**, and **LightGBM**.
-* **Handling Class Imbalance**: The dataset exhibited a significant class imbalance, with fewer instances of defaulted loans. To address this, multiple techniques were employed:
-    * **Class Weight Balancing**: The models were trained using balanced class weights, which penalizes misclassifications of the minority class more heavily.
-    * **Resampling Techniques**: To create a more balanced dataset, several advanced resampling techniques were implemented:
-        * **SMOTE (Synthetic Minority Over-sampling Technique)**: Oversamples the minority class by creating synthetic samples.
-        * **ADASYN (Adaptive Synthetic Sampling)**: A variation of SMOTE that generates more synthetic data for minority class samples that are harder to learn.
-        * **SMOTE-Tomek**: A hybrid method that combines oversampling (SMOTE) with undersampling (Tomek Links) to clean the space from overlapping instances.
-        * **SMOTE-ENN**: Another hybrid method that combines SMOTE with Edited Nearest Neighbors (ENN) to remove noise from the majority class.
+### Feature Engineering
 
-### Results
+To enhance the models' predictive power, several new features were created:
 
-The models were evaluated based on accuracy, precision, recall, and F1-score, with a focus on the performance for the minority class (predicting defaults). The following table summarizes the performance of the **Logistic Regression** model under different data balancing scenarios:
+* **`credit_history_length`**: The length of the borrower's credit history.
+* **`loan_to_income_ratio`**: The ratio of the loan amount to the borrower's annual income.
+* **`instalment_to_income_ratio`**: The ratio of the loan's monthly installment to the borrower's estimated monthly income.
 
-| Model / Technique           | Accuracy | Precision (Default) | Recall (Default) | F1-Score (Default) |
-| --------------------------- | -------- | ------------------- | ---------------- | ------------------ |
-| Baseline (Imbalanced)       | 0.8846   | 0.90                | 0.37             | 0.52               |
-| Balanced Class Weights      | 0.8842   | 0.63                | 0.80             | 0.70               |
-| Resampling with SMOTE       | 0.9066   | 0.70                | 0.79             | 0.74               |
-| Resampling with ADASYN      | 0.9087   | 0.70                | 0.81             | 0.75               |
-| Resampling with SMOTE-Tomek | 0.9192   | 0.74                | 0.80             | 0.77               |
-| Resampling with SMOTE-ENN   | 0.6909   | 0.34                | 0.89             | 0.50               |
+### Model Experiment Design
 
-As shown, the resampling techniques significantly improved the model's ability to identify defaults. **SMOTE**, **ADASYN** and **SMOTE-Tomek** provided the best balance of precision and recall, achieving the highest F1-scores and demonstrating a strong ability to predict loan defaults without compromising overall accuracy.
+A comprehensive experiment was designed to determine the most effective combination of preprocessing, resampling, and modeling.
 
+* **Models Tested**:
+    * `LogisticRegression`
+    * `RandomForestClassifier`
+    * `LGBMClassifier` (LightGBM)
+
+* **Resampling Techniques**:
+    * `None` (original imbalanced data)
+    * `SMOTE`
+    * `ADASYN`
+    * `SMOTE-Tomek`
+    * `SMOTE-ENN`
+
+* **Preprocessing Pipelines Compared**:
+    * **Minimal Pipeline**: Included only basic imputation and one-hot encoding.
+    * **Advanced Pipeline**: Included skewness correction (Box-Cox, Yeo-Johnson), feature scaling (StandardScaler), and PCA for dimensionality reduction.
+
+### Results and Conclusion: Less is More
+
+The results from the experiment revealed a clear and surprising trend: the **Minimal Preprocessing Pipeline consistently and significantly outperformed the Advanced Pipeline** across all models.
+
+This suggests that for this dataset, aggressive transformations like skewness correction and PCA were detrimental, potentially distorting the original feature distributions. Tree-based models like LightGBM and Random Forest are inherently robust to skewed and unscaled data, which explains their strong performance in the minimal pipeline.
+
+#### Key Takeaways:
+
+* **🏆 Top Performer**: The best strategy was the **Minimal Pipeline + LightGBM + SMOTE**. This combination achieved an outstanding **F1-Score of 0.945** and a **Recall of 0.906** for the default class.
+* **🚀 Highest Recall**: The highest recall (0.937) was achieved by the **Minimal Pipeline + LightGBM + SMOTE-ENN**, demonstrating the power of targeted oversampling.
+* **💡 Simplicity Wins**: The minimal pipeline allowed models to learn directly from the data. The damage from over-processing was clear: Random Forest's recall, for example, dropped from **0.665** (Minimal) to a mere **0.022** (Advanced).
+
+#### Performance Summary (Best F1-Score per Model)
+
+The table below provides a "best-of-the-best" comparison. It shows the **single best-performing setup (based on highest F1-Score)** for each of the three models within each of the two pipelines. This clearly highlights the performance gap and supports the conclusion.
+
+All metrics are for the minority class (default = 0).
+
+| Pipeline | Model | Best Resampler | Precision (Default) | Recall (Default) | F1-Score (Default) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Minimal** | **LightGBM** | **SMOTE** | **0.988** | **0.906** | **0.945** |
+| **Minimal** | **LogisticRegression** | **SMOTE-Tomek** | **0.980** | **0.904** | **0.940** |
+| **Minimal** | **Random Forest** | **SMOTE-Tomek** | **0.937** | **0.665** | **0.778** |
+| Advanced | LogisticRegression | SMOTE | 0.737 | 0.808 | 0.771 |
+| Advanced | LightGBM | SMOTE-Tomek | 0.355 | 0.371 | 0.363 |
+| Advanced | Random Forest | SMOTE-ENN | 0.218 | 0.717 | 0.335 |
 ---
 
 ## How to Use
